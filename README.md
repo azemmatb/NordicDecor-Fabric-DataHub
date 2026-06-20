@@ -8,25 +8,11 @@ NordicDecor est une grande chaîne de magasins de meubles. L'objectif de ce proj
 
 Ce projet a été entièrement développé sur Microsoft Fabric (Capacité F2) en utilisant une architecture Medallion pour garantir la qualité et la performance :
 
-Couche Bronze (Raw) : Ingestion des fichiers plats (.csv) quotidiens (Tickets SAV et Catalogue Meubles) dans le stockage OneLake (Files).
+Couche Bronze (Raw) : Ingestion des fichiers plats (.csv) quotidiens.
 
-Couche Silver (Cleaned) : Nettoyage des données via PySpark.
+Couche Silver (Cleaned) : Nettoyage des données via PySpark (Gestion des nuls, dédoublonnage, standardisation).
 
-Traitement des valeurs nulles (Data Quality Patterns avec coalesce).
-
-Dédoublonnage (dropDuplicates).
-
-Standardisation des statuts métiers (when().otherwise()).
-
-Sauvegarde au format Delta Lake (mode("overwrite")).
-
-Couche Gold (Curated) : Enrichissement et Modélisation.
-
-Jointure PySpark entre les retours et le catalogue dimensionnel.
-
-Calcul de la métrique métier (Valeur_Bloquee).
-
-Optimisation des performances de lecture via un partitionnement physique (partitionBy("Magasin")).
+Couche Gold (Curated) : Enrichissement et Modélisation (Jointure PySpark, optimisation Delta format).
 
 ⚙️ Orchestration & Automatisation (Data Factory)
 
@@ -36,7 +22,7 @@ Création d'un Graphe Orienté Acyclique (DAG) assurant que la couche Gold n'est
 
 Planification (Schedule) quotidienne automatique pour une mise à disposition des données avant l'ouverture des magasins.
 
-(Glisse et dépose ta capture d'écran de ton pipeline ici pour remplacer ce texte)
+<img width="1720" height="1169" alt="image" src="https://github.com/user-attachments/assets/ae2daf8e-961a-44c5-aa15-4d88516bf425" />
 
 🛡️ Gouvernance & Sécurité (Row-Level Security)
 
@@ -44,22 +30,16 @@ Pour répondre aux standards de production et de confidentialité :
 
 Implémentation du Row-Level Security (RLS) directement sur le SQL Analytics Endpoint en T-SQL.
 
-Création d'une fonction de filtrage dynamique basée sur USER_NAME() (EntraID/Azure AD).
-
 Résultat : Lorsqu'un directeur de magasin se connecte au rapport, la base de données filtre nativement les lignes pour ne lui afficher que l'argent bloqué dans sa propre succursale (ex: Mons ne voit que Mons), garantissant une sécurité à la source.
 
-(Glisse et dépose ta capture d'écran de ton code SQL ici pour remplacer ce texte)
+<img width="1719" height="1112" alt="image" src="https://github.com/user-attachments/assets/b65e81b2-c5a0-48a5-9bd2-d625c7d2d37a" />
 
 🔄 CI/CD & Contrôle de Code Source
 
 L'espace de travail de développement Fabric est synchronisé en temps réel avec ce dépôt GitHub.
 
-Le code PySpark, les modèles sémantiques et les pipelines sont versionnés sur la branche main, prêts pour un déploiement sécurisé vers les environnements de TEST et de PROD via les Deployment Pipelines de Fabric.
+Le code PySpark, les modèles sémantiques et les pipelines sont versionnés sur la branche main.
 
-(Glisse et dépose ta capture d'écran de l'espace de travail "Synced" ici pour remplacer ce texte)
+<img width="1713" height="1143" alt="image" src="https://github.com/user-attachments/assets/e54a2241-3638-4fbb-b1f4-076a1c462cc5" />
 
-📂 Navigation dans le code
-
-💡 Note pour les relecteurs : L'intégration continue de Fabric générant une arborescence complexe, les codes sources principaux ont été extraits et mis au propre dans le dossier scripts/ de ce dépôt pour faciliter votre lecture.
-
-Projet réalisé de bout-en-bout (Data Engineering, Cloud Architecture, BI, CI/CD).
+💡 Note pour les recruteurs : Les fichiers sources générés par l'intégration Fabric se trouvent à la racine. Pour une lecture rapide de mon code Python et SQL, veuillez consulter le dossier /scripts.
