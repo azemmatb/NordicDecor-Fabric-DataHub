@@ -1,0 +1,11 @@
+expression 'DirectLake - LH_NordicDecor' =
+		let
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/94f502cb-28ad-4acc-abbd-60c607915159/7894c5a0-9e49-42a4-b121-d9ac744c9062", [HierarchicalNavigation=true])
+		in
+		    Source
+	lineageTag: 6ac9b6e5-5a28-40b4-8cf4-30c1903d77e3
+
+	annotation PBI_IncludeFutureArtifacts = False
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[silver_retours_sav]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[silver_dim_pieces]"}},"objectType":"Table"}]
+

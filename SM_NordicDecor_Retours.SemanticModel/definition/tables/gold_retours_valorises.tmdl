@@ -1,0 +1,94 @@
+table gold_retours_valorises
+	lineageTag: f47fd2cc-17b1-4ddc-87e0-e24f3d1e056c
+	sourceLineageTag: [dbo].[gold_retours_valorises]
+
+	column ID_Piece
+		dataType: string
+		lineageTag: 7f4204b3-a1b9-41f1-ae07-08d4778d6cf2
+		sourceLineageTag: ID_Piece
+		summarizeBy: none
+		sourceColumn: ID_Piece
+
+		annotation SummarizationSetBy = Automatic
+
+	column Id_Retour
+		dataType: string
+		lineageTag: fa3146ff-63f5-4033-bf6d-9db74fefecc6
+		sourceLineageTag: Id_Retour
+		summarizeBy: none
+		sourceColumn: Id_Retour
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date_Retour
+		dataType: string
+		lineageTag: a12b9b68-df3e-48ae-afb1-e92601d25b98
+		sourceLineageTag: Date_Retour
+		summarizeBy: none
+		sourceColumn: Date_Retour
+
+		annotation SummarizationSetBy = Automatic
+
+	column Statut
+		dataType: string
+		lineageTag: df3d6072-975b-4e5e-a03a-039ed9f6df47
+		sourceLineageTag: Statut
+		summarizeBy: none
+		sourceColumn: Statut
+
+		annotation SummarizationSetBy = Automatic
+
+	column Magasin
+		dataType: string
+		lineageTag: f2bec0f1-5b31-436e-b239-34e8e2b7e0d6
+		sourceLineageTag: Magasin
+		summarizeBy: none
+		sourceColumn: Magasin
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nom_Meuble
+		dataType: string
+		lineageTag: fcc314fb-1705-4a4b-81d7-f2febd0a4ce3
+		sourceLineageTag: Nom_Meuble
+		summarizeBy: none
+		sourceColumn: Nom_Meuble
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categorie
+		dataType: string
+		lineageTag: 2ccacbb5-3f13-41e0-b815-b97428a8d8f2
+		sourceLineageTag: Categorie
+		summarizeBy: none
+		sourceColumn: Categorie
+
+		annotation SummarizationSetBy = Automatic
+
+	column Prix
+		dataType: string
+		lineageTag: bdf636ac-6ac4-4d08-ba3e-4aacd8724693
+		sourceLineageTag: Prix
+		summarizeBy: none
+		sourceColumn: Prix
+
+		annotation SummarizationSetBy = Automatic
+
+	column Valeur_Bloquee
+		dataType: string
+		lineageTag: d060fb3a-a8c3-4ca8-b4b1-4405ab502723
+		sourceLineageTag: Valeur_Bloquee
+		summarizeBy: none
+		sourceColumn: Valeur_Bloquee
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_retours_valorises = entity
+		mode: directLake
+		source
+			entityName: gold_retours_valorises
+			schemaName: dbo
+			expressionSource: 'DirectLake - LH_NordicDecor'
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "PL_Daily_Refresh_NordicDecor"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "40109e5e-813b-aa7c-4599-a11ceb4d101c"
+  }
+}

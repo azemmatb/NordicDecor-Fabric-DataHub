@@ -1,0 +1,84 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "559533f634e9a28ccd20",
+  "position": {
+    "x": 377.71928966293234,
+    "y": 175.33388777457071,
+    "z": 0,
+    "height": 439.83758133163741,
+    "width": 523.99784746343141,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_retours_valorises"
+                    }
+                  },
+                  "Property": "Magasin"
+                }
+              },
+              "queryRef": "gold_retours_valorises.Magasin",
+              "nativeQueryRef": "Magasin"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_retours_valorises"
+                    }
+                  },
+                  "Property": "Valeur_Bloquee"
+                }
+              },
+              "queryRef": "gold_retours_valorises.Valeur_Bloquee",
+              "nativeQueryRef": "Valeur_Bloquee"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c7df1780109a9a7da0a7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_retours_valorises"
+              }
+            },
+            "Property": "Magasin"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "62a0e1c045a2bb42e86a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_retours_valorises"
+              }
+            },
+            "Property": "Valeur_Bloquee"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}
