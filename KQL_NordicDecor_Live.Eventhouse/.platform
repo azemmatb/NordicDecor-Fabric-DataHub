@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Eventhouse",
+    "displayName": "KQL_NordicDecor_Live",
+    "description": "KQL_NordicDecor_Live"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "44f73e34-41fc-8f32-43b2-053d4539baae"
+  }
+}

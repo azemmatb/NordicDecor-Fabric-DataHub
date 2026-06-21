@@ -29,7 +29,6 @@ df_retours_raw = spark.read.format("csv").option("header", "true").load("Files/r
 df_pieces_raw = spark.read.format("csv").option("header", "true").load("Files/raw_data/dim_pieces.csv")
 
 # 2. NETTOYAGE DES DONNÉES 
-# Rappel : 
 # Supprimer les doublons (dropDuplicates)
 # Remplacer les valeurs nulles dans "ID_Piece" par "STK-999" (coalesce)
 # Si "Statut" == "Inconnu", remplacer par "À vérifier", sinon garder le statut (when...otherwise)
@@ -42,7 +41,7 @@ df_retours_silver = df_retours_raw \
 df_pieces_silver = df_pieces_raw # Pas de nettoyage nécessaire ici
 
 # 3. SAUVEGARDE EN TABLE DELTA (Delta Save Pattern)
-# Rappel : format delta, mode overwrite, saveAsTable("nom_de_la_table")
+# format delta, mode overwrite, saveAsTable("nom_de_la_table")
 
 df_retours_silver.write.mode("overwrite").format("delta").saveAsTable("silver_retours_sav")
 df_pieces_silver.write.mode("overwrite").format("delta").saveAsTable("silver_dim_pieces")

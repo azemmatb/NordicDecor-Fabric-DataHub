@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLDatabase",
+    "displayName": "KQL_NordicDecor_Live",
+    "description": "KQL_NordicDecor_Live"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d0b7c38d-b5c5-8853-4ffd-2c42db023798"
+  }
+}
