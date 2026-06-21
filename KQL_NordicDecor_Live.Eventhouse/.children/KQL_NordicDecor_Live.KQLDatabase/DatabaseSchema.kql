@@ -2,3 +2,4 @@
 // Use management commands in this script to configure your database items, such as tables, functions, materialized views, and more.
 
 
+.create-merge table Live_Deliveries (VendorID:long, tpep_pickup_datetime:string, tpep_dropoff_datetime:string, passenger_count:real, trip_distance:real, RatecodeID:real, store_and_fwd_flag:string, PULocationID:long, DOLocationID:long, payment_type:long, fare_amount:real, extra:real, mta_tax:real, tip_amount:real, tolls_amount:real, improvement_surcharge:real, total_amount:real, congestion_surcharge:real, airport_fee:real) 

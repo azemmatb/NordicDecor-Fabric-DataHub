@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLDashboard",
+    "displayName": "Dashboard_Live_Deliveries",
+    "description": "Dashboard_Live_Deliveries"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a1bc818c-ac4b-8dde-4caa-fa0423e48649"
+  }
+}

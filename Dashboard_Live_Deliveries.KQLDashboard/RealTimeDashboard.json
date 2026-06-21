@@ -1,0 +1,90 @@
+{
+  "schema_version": 75,
+  "changeDetection": {
+    "kind": "liveUpdates",
+    "fallbackRefreshRate": "5m",
+    "minRefreshRate": "30s"
+  },
+  "tiles": [
+    {
+      "id": "847851d8-5a15-42d1-824a-542c2a4298de",
+      "title": "New Tile",
+      "visualType": "column",
+      "pageId": "06d8e41f-7fcc-4b3f-b26e-216c908af01b",
+      "layout": {
+        "x": 5,
+        "y": 1,
+        "width": 17,
+        "height": 18
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "41110b08-c477-4ebd-95d0-ddde44efe305"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": []
+          },
+          "additional": [],
+          "showMultiplePanels": false
+        },
+        "seriesColors": {},
+        "hideLegend": false,
+        "legendLocation": "bottom",
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilter": [],
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "forceAxisTicks": false,
+        "drillthrough": [],
+        "selectedDataOnLoad": {
+          "all": true,
+          "limit": 10
+        }
+      }
+    }
+  ],
+  "baseQueries": [],
+  "parameters": [],
+  "dataSources": [
+    {
+      "id": "883ddf1c-ae7c-4202-a86d-f954b1bf16b8",
+      "kind": "kusto-trident",
+      "name": "KQL_NordicDecor_Live",
+      "clusterUri": "",
+      "databaseArtifactId": "db023798-2c42-4ffd-8853-b5c5d0b7c38d",
+      "database": "d0b7c38d-b5c5-8853-4ffd-2c42db023798",
+      "workspace": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Page 1",
+      "id": "06d8e41f-7fcc-4b3f-b26e-216c908af01b"
+    }
+  ],
+  "queries": [
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "883ddf1c-ae7c-4202-a86d-f954b1bf16b8"
+      },
+      "text": "// 1. On appelle la table\nLive_Deliveries\n// 2. On crée d'abord une vraie colonne Date proprement\n| extend Heure_Propre = todatetime(tpep_pickup_datetime)\n// 3. On groupe par tranches de 1 MINUTE (pour éviter les \"trous\" des secondes vides)\n| summarize Total_Courses = count() by Time_Bin = bin(Heure_Propre, 1m)\n// 4. On prend uniquement les 30 dernières minutes\n| top 30 by Time_Bin desc\n// 5. On remet dans l'ordre chronologique pour le graphique\n| order by Time_Bin asc",
+      "id": "41110b08-c477-4ebd-95d0-ddde44efe305",
+      "usedVariables": []
+    }
+  ],
+  "embeddedApps": []
+}
