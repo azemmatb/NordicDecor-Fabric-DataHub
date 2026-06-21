@@ -1,0 +1,10 @@
+// 1. On appelle la table
+Live_Deliveries
+// 2. On crée d'abord une vraie colonne Date proprement
+| extend Heure_Propre = todatetime(tpep_pickup_datetime)
+// 3. On groupe par tranches de 1 MINUTE (pour éviter les "trous" des secondes vides)
+| summarize Total_Courses = count() by Time_Bin = bin(Heure_Propre, 1m)
+// 4. On prend uniquement les 30 dernières minutes
+| top 30 by Time_Bin desc
+// 5. On remet dans l'ordre chronologique pour le graphique
+| order by Time_Bin asc
